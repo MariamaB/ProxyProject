@@ -8,21 +8,12 @@ import htw.designpattern.projekt.proxy.interfaces.KontoAnlegen;
 
 public class BankBackendProxy implements KontoAnlegen{
 	
-
-
-	public BankBackendProxy() {
-
-	}
 	
 	@Override
-	public Konto createKonto(String name, String vormane, String blz, int pin, double kontostand) {	
-		return new Konto().createKonto(name, vormane, blz, pin, kontostand);
+	public void createKonto(String name, String vormane, String blz, int pin, double kontostand) {	
+		Backend b = new Backend();
+		b.createKonto(name, vormane, blz, pin, kontostand);
 	}
 	
-	public List <Konto> getKonten(){
-		return konten;
-	}
-
-
 
 }

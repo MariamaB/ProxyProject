@@ -11,15 +11,10 @@ public class test {
 		
 		
 
-		@Override
-		public Konto createKonto(String name, String vormane, String blz, int pin, double kontostand) {
-			Konto k = new Konto();
-			k.kontoinhaber.setVorname("Miriam");
-			k.kontoinhaber.setName("Lischke");
-			k.blz = blz;
-			k.pin = pin;
-			k.kontostand = kontostand;
-			return k;
+		konten[0] = this.createKonto("Lischke", "Miriam", "DE82 1005 0000 6011 9838 88", 
+				1234, 30.000);
+		konten[1] = this.createKonto("Nan Danke", "Felix", "DE84 1005 0000 6012 9878 24", 
+				4321, 30.000);
 		}
 	}
 

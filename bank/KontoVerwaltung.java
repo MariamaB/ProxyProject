@@ -1,5 +1,7 @@
 package htw.designpattern.projekt.proxy.bank;
 
+import java.util.Iterator;
+
 import htw.designpattern.projekt.proxy.bank.model.Konto;
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
@@ -7,13 +9,8 @@ public class KontoVerwaltung extends Backend implements KontoInteraktion{
 	private Konto konto;
 	
 	public KontoVerwaltung(String blz) {
-		for (Konto konto : konten) {
-			if(konto.getBlz().equals(blz)){
-				this.konto = konto;
-			}
-		}
+				this.konto = this.konten.get(blz);
 	}
-	
 	
 	@Override
 	public double getKontostand() {

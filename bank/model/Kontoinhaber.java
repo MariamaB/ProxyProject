@@ -2,12 +2,17 @@ package htw.designpattern.projekt.proxy.bank.model;
 
 public class Kontoinhaber {
 	
+	
 	public Kontoinhaber(String name, String vorname) {
 		super();
 		this.name = name;
 		this.vorname = vorname;
 	}
 	
+	public Kontoinhaber() {
+
+	}
+
 	private String name;
 	private String vorname;
 

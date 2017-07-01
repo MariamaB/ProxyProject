@@ -6,7 +6,7 @@ import java.util.List;
 import htw.designpattern.projekt.proxy.interfaces.KontoAnlegen;
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
-public class Konto implements KontoAnlegen{
+public class Konto{
 	
 	private Kontoinhaber kontoinhaber;
 	private String blz;
@@ -19,7 +19,7 @@ public class Konto implements KontoAnlegen{
 	}
 	
 
-	private Konto(Kontoinhaber kontoinhaber, String blz, int pin, double kontostand) {
+	protected Konto(Kontoinhaber kontoinhaber, String blz, int pin, double kontostand) {
 		super();
 		this.kontoinhaber = kontoinhaber;
 		this.blz = blz;
@@ -68,10 +68,7 @@ public class Konto implements KontoAnlegen{
 		this.umsätze = umsätze;
 	}
 
-	@Override
-	public Konto createKonto(String name, String vorname, String blz, int pin, double kontostand) {
-		return new Konto(new Kontoinhaber(name, vorname), blz, pin, kontostand) ;
-	}
+
 
 
 
