@@ -1,6 +1,6 @@
 package htw.designpattern.projekt.proxy.interfaces;
 
-import htw.designpattern.projekt.proxy.bank.Konto;
+import htw.designpattern.projekt.proxy.bank.model.Konto;
 
 public interface KontoAnlegen {
 	

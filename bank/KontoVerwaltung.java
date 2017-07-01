@@ -3,50 +3,49 @@ package htw.designpattern.projekt.proxy.bank;
 import htw.designpattern.projekt.proxy.bank.model.Konto;
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
-public class BankAutomatProxy implements KontoInteraktion {
+public class KontoVerwaltung extends Backend implements KontoInteraktion{
+	private Konto konto;
 	
-	private String blz;
-	
-	public BankAutomatProxy(String ecKarte) {
-		this.blz = ecKarte;
+	public KontoVerwaltung(String blz) {
+		for (Konto konto : konten) {
+			if(konto.getBlz().equals(blz)){
+				this.konto = konto;
+			}
+		}
 	}
-
+	
+	
 	@Override
 	public double getKontostand() {
-		KontoVerwaltung kv = new KontoVerwaltung(blz);
-		return kv.getKontostand();
+		return konto.getKontostand();
 	}
 
 	@Override
 	public void einzahlung(double wert) {
-		KontoVerwaltung kv = new KontoVerwaltung(blz);
-		kv.einzahlung(wert);
+		konto.setKontostand(konto.getKontostand() + wert);
+		
 	}
 
 	@Override
 	public void auszahlung(double wert) {
-		KontoVerwaltung kv = new KontoVerwaltung(blz);
-		kv.auszahlung(wert);
+		konto.setKontostand(konto.getKontostand() - wert);
+		
 	}
 
 	@Override
 	public boolean pinEingabe(int pin) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void getKontoauszug() {
-		KontoVerwaltung kv = new KontoVerwaltung(blz);
-		kv.getKontoauszug(); 
+		System.out.println("Konto [umsätze=" + konto.getUmsätze() + "]");	
 	}
 
 	@Override
 	public void ueberweisung() {
-		// TODO Auto-generated method stub
-		
+			
 	}
-
-
-
 
 }
