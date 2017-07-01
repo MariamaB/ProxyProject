@@ -2,33 +2,30 @@ package htw.designpattern.projekt.proxy.bank;
 
 import java.util.HashMap;
 
-import htw.designpattern.projekt.proxy.bank.model.Konto;
-import htw.designpattern.projekt.proxy.bank.model.Kontoinhaber;
 import htw.designpattern.projekt.proxy.interfaces.KontoAnlegen;
 
-public class Backend implements KontoAnlegen{
+public class Backend extends Konto implements KontoAnlegen{
 	
-	protected HashMap<String, Konto>konten;
-	private Konto konto;
-	private Kontoinhaber kontoinhaber;
+	protected HashMap<String, Konto>konten = new HashMap<>();
+	private Konto konto = new Konto();
+
 	
-	public Backend() {
-		konten = new HashMap<>();
-		konto = new Konto();
-		kontoinhaber = new Kontoinhaber();
+	protected Backend() {
 	
 	}
 
 	@Override
 	public void createKonto(String name, String vorname, String blz, int pin, double kontostand) {
-		kontoinhaber.setVorname(vorname);
-		kontoinhaber.setName(name);
-		konto.setKontoinhaber(kontoinhaber);
+		
+		
+		konto.getKontoinhaber().setVorname(vorname);
+		konto.getKontoinhaber().setName(name);
 		konto.setBlz(blz);
 		konto.setPin(pin);
 		konto.getKontostand();
 		
 		konten.put(konto.getBlz(), konto);
+		System.out.println("Kundenkonto "+konto.kontoinhaber + "in DB gespeichert");
 		
 		
 	}

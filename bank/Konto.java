@@ -1,31 +1,20 @@
-package htw.designpattern.projekt.proxy.bank.model;
+package htw.designpattern.projekt.proxy.bank;
 
 import java.util.HashMap;
-import java.util.List;
-
-import htw.designpattern.projekt.proxy.interfaces.KontoAnlegen;
-import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
 public class Konto{
 	
-	private Kontoinhaber kontoinhaber;
-	private String blz;
-	private int pin;
-	private double kontostand;
-	private HashMap<String, Integer> umsätze;
+	protected Kontoinhaber kontoinhaber;
+	protected String blz;
+	protected int pin;
+	protected double kontostand;
+	protected HashMap<String, Integer> umsätze;
 	
-	public Konto(){ 
-	
+	protected Konto(){ 
+		kontoinhaber = new Kontoinhaber();
+		umsätze = new HashMap<>();
 	}
 	
-
-	protected Konto(Kontoinhaber kontoinhaber, String blz, int pin, double kontostand) {
-		super();
-		this.kontoinhaber = kontoinhaber;
-		this.blz = blz;
-		this.pin = pin;
-		this.kontostand = kontostand;
-	}
 
 
 	public String getBlz() {

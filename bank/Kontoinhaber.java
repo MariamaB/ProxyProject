@@ -1,16 +1,19 @@
-package htw.designpattern.projekt.proxy.bank.model;
+package htw.designpattern.projekt.proxy.bank;
 
-public class Kontoinhaber {
+ public class Kontoinhaber {
 	
 	
-	public Kontoinhaber(String name, String vorname) {
-		super();
+	protected Kontoinhaber(String name, String vorname) {
 		this.name = name;
 		this.vorname = vorname;
 	}
 	
-	public Kontoinhaber() {
+	@Override
+	public String toString() {
+		return "Kontoinhaber [" + vorname + " " + name + "]";
+	}
 
+	protected Kontoinhaber() {
 	}
 
 	private String name;

@@ -1,6 +1,6 @@
 package htw.designpattern.projekt.proxy.dismissed;
 
-import htw.designpattern.projekt.proxy.bank.model.Konto;
+import htw.designpattern.projekt.proxy.bank.Konto;
 
 public class test {
 	public static void main(String[] args) {

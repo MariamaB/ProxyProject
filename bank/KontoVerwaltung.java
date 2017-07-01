@@ -1,15 +1,12 @@
 package htw.designpattern.projekt.proxy.bank;
 
-import java.util.Iterator;
-
-import htw.designpattern.projekt.proxy.bank.model.Konto;
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
 public class KontoVerwaltung extends Backend implements KontoInteraktion{
-	private Konto konto;
+	private Konto konto = new Konto();
 	
-	public KontoVerwaltung(String blz) {
-				this.konto = this.konten.get(blz);
+	protected KontoVerwaltung(String blz) {
+		this.konto = this.konten.get(blz);
 	}
 	
 	@Override

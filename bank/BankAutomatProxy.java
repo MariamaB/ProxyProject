@@ -1,6 +1,5 @@
 package htw.designpattern.projekt.proxy.bank;
 
-import htw.designpattern.projekt.proxy.bank.model.Konto;
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
 public class BankAutomatProxy implements KontoInteraktion {
