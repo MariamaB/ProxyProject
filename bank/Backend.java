@@ -13,10 +13,8 @@ import com.opencsv.CSVWriter;
 import htw.designpattern.projekt.proxy.interfaces.KontoAnlegen;
 
 public class Backend implements KontoAnlegen{
-	
-	protected HashMap<String, Konto>konten = new HashMap<>();
 	private Konto konto = new Konto();
-
+	private String csv = "C:\\Users\\mlisc\\IKT\\IKTuebung\\src\\htw\\designpattern\\projekt\\proxy\\csv\\DB.csv";
 	
 	protected Backend() {
 	
@@ -25,23 +23,9 @@ public class Backend implements KontoAnlegen{
 	@Override
 	public void createKonto(String name, String vorname, String blz, int pin, double kontostand) {
 		
-		String csv = "C:\\Users\\mlisc\\IKT\\IKTuebung\\src\\htw\\designpattern\\projekt\\proxy\\csv\\DB.csv";
-      
 		try {
-			CSVReader reader = new CSVReader(new FileReader(csv), ',');
-	       
-			
-			List <String[]>dbList = reader.readAll();
-			reader.close();
-			
-			
-			Kontoinhaber kontoinhaber = new Kontoinhaber(name,vorname);
-			konto = new Konto(kontoinhaber, blz, pin, kontostand);
+			List <String[]>dbList = this.getKontoList();
 			String[] kA = new String[5];
-			
-		    for (int i=0; i< dbList.size(); i++) {
-		    	System.out.println("was los??"+dbList.get(i));
-			}
 			
 		    kA[0] = name;
 		    kA[1] = vorname;
@@ -63,28 +47,51 @@ public class Backend implements KontoAnlegen{
 				if (!isInsideOf) {
 					dbList.add(kA);
 					writer.writeAll(dbList);
+			        System.out.println("Konto wurde erfolgreich angelegt!");
 				}else{
 					writer.writeAll(dbList);
+					System.out.println("Konto existiert bereits!");
 				}
-				System.out.println("hat geklappt! List");
 			}else{
 				writer.writeNext(kA);
-				System.out.println("hat geklappt! Array");
+				 System.out.println("Konto wurde erfolgreich angelegt!");
 			}
-		
-//	        System.out.println("CSV File written successfully line by line");
 	        writer.close();
 	       
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
-
+	
+	public Konto getKonto(String blz){
+		try {
+			List <String[]>dbList = this.getKontoList();
+			for (String[] strings : dbList) {
+				if (strings[2].equals(blz)){
+					konto.getKontoinhaber().setName(strings[0]);
+					konto.getKontoinhaber().setVorname(strings[1]);
+					konto.setBlz(strings[2]);
+					konto.setPin(Integer.parseInt(strings[3]));
+					konto.setKontostand((Double.parseDouble(strings[4])));
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return konto;	
+	}
 	
 	
+	private List<String[]> getKontoList() throws IOException{
+		CSVReader reader = new CSVReader(new FileReader(csv), ',');
+		List <String[]>dbList = reader.readAll();
+		reader.close();
+		return dbList;
+		
+	}
 	
 	
 

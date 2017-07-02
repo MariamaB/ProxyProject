@@ -4,14 +4,15 @@ import java.util.HashMap;
 
 public class Konto{
 	
-	protected Kontoinhaber kontoinhaber;
-	protected String blz;
-	protected int pin;
-	protected double kontostand;
-	protected HashMap<String, Integer> umsätze = new HashMap<>();;
+	private Kontoinhaber kontoinhaber;
+	private String blz;
+	private int pin;
+	private double kontostand;
+	private HashMap<String, Integer> umsätze = new HashMap<>();;
 	
 	protected Konto(){ 
-
+		kontoinhaber = new Kontoinhaber();
+		umsätze = new HashMap<>();
 	}
 	
 	protected Konto(Kontoinhaber kontoinhaber, String blz, int pin, double kontostand) {

@@ -14,7 +14,6 @@ public class BankMitarbeiter{
 		BankBackendProxy bbp = new BankBackendProxy();
 		if (this.pwd == personalPasswort) {
 			bbp.createKonto(name, vorname, blz, KundenPin, kontostand);
-			System.out.println("Kundenkonto angelegt!");
 		}
 		else{
 			System.out.println("Mitarbeiter passwort ist falsch!");
