@@ -7,10 +7,10 @@ package htw.designpattern.projekt.proxy.bank;
 		this.name = name;
 		this.vorname = vorname;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Kontoinhaber [" + vorname + " " + name + "]";
+		return "[name=" + name + ", vorname=" + vorname + "]";
 	}
 
 	protected Kontoinhaber() {
