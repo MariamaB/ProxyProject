@@ -4,13 +4,13 @@ public interface KontoInteraktion {
 	
 	public double getKontostand();
 	
-	public void einzahlung(double wert);
-	public void auszahlung(double wert);
+	public double einzahlung(double wert);
+	public double auszahlung(double wert);
 	
-	public boolean pinEingabe(int pin);
+//	public boolean pinEingabe(int pin);
 	
 	public void getKontoauszug();
-	public void ueberweisung();
+	public void ueberweisung(String blz, String verwendungszweck, double betrag);
 
 //	void setKontostand(double wert);
 	

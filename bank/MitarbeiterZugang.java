@@ -1,11 +1,11 @@
 package htw.designpattern.projekt.proxy.bank;
 
-public class BankMitarbeiter{
+public class MitarbeiterZugang{
 	
 	private int personalnr;
 	private int pwd;
 	
-	public BankMitarbeiter() {
+	public MitarbeiterZugang() {
 		this.personalnr = 123;
 		this.pwd = 123;
 	}

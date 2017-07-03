@@ -1,13 +1,15 @@
 package htw.designpattern.projekt.proxy.bank;
 
+import java.io.IOException;
+
 import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
 public class KontoVerwaltung implements KontoInteraktion{
 	private Konto konto;
 	
-	protected KontoVerwaltung(String blz) {
+	protected KontoVerwaltung(String blz, int kundenPin) {
 		Backend backend = new Backend();
-		konto = backend.getKonto(blz);
+		konto = backend.getKonto(blz, kundenPin);
 		
 	}
 	
@@ -17,31 +19,60 @@ public class KontoVerwaltung implements KontoInteraktion{
 	}
 
 	@Override
-	public void einzahlung(double wert) {
+	public double einzahlung(double wert) {
+		Backend backend = new Backend();
 		konto.setKontostand(konto.getKontostand() + wert);
-		
+		backend.updateKonto(konto.getBlz(),konto);
+		try {
+			backend.updateUmzaetze(konto.getBlz(), "Einzahlung ", wert);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return konto.getKontostand() + wert;
 	}
 
 	@Override
-	public void auszahlung(double wert) {
+	public double auszahlung(double wert) {
+		Backend backend = new Backend();
 		konto.setKontostand(konto.getKontostand() - wert);
-		
-	}
-
-	@Override
-	public boolean pinEingabe(int pin) {
-		// TODO Auto-generated method stub
-		return false;
+		backend.updateKonto(konto.getBlz(),konto);
+		try {
+			backend.updateUmzaetze(konto.getBlz(), "Auszahlung ", wert);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return konto.getKontostand() - wert;
 	}
 
 	@Override
 	public void getKontoauszug() {
-		System.out.println("Konto [umsätze=" + konto.getUmsätze() + "]");	
+		Backend backend = new Backend();
+		try {
+			backend.getUmseatze(konto.getBlz());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public void ueberweisung() {
-			
+	public void ueberweisung(String blz, String verwendungszweck, double betrag) {
+		Backend backend = new Backend();
+		Konto begünstigter = backend.getKonto(blz);
+		this.auszahlung(betrag);
+		begünstigter.setKontostand(begünstigter.getKontostand() + betrag);
+		
+		try {
+			backend.updateUmzaetze(konto.getBlz(), "Ueberweisung an"+begünstigter.getKontoinhaber().fullName()+
+					" "+verwendungszweck, betrag);
+			backend.updateUmzaetze(begünstigter.getBlz(), "Ueberweisung von"+konto.getKontoinhaber().fullName()+
+					" "+verwendungszweck, betrag);
+					} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

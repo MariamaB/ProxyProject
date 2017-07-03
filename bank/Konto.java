@@ -52,8 +52,9 @@ public class Konto{
 		return kontostand;
 	}
 
-	public void setKontostand(double kontostand) {
+	public double setKontostand(double kontostand) {
 		this.kontostand = kontostand;
+		return kontostand;
 	}
 
 	public HashMap<String, Integer> getUmsätze() {

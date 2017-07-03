@@ -13,6 +13,11 @@ package htw.designpattern.projekt.proxy.bank;
 		return "[name=" + name + ", vorname=" + vorname + "]";
 	}
 
+	
+	public String fullName() {
+		return vorname + " " + name;
+	}
+
 	protected Kontoinhaber() {
 	}
 
