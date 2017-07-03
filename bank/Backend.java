@@ -21,7 +21,7 @@ public class Backend implements KontoAnlegen{
 	}
 
 	@Override
-	public void createKonto(String name, String vorname, String blz, int pin, double kontostand) {
+	public boolean createKonto(String name, String vorname, String blz, int pin, double kontostand) {
 		
 		try {
 			List <String[]>dbList = this.getKontoList();
@@ -48,20 +48,26 @@ public class Backend implements KontoAnlegen{
 					dbList.add(kA);
 					writer.writeAll(dbList);
 			        System.out.println("Konto wurde erfolgreich angelegt!");
+			        writer.close();
+			        	return true;
 				}else{
 					writer.writeAll(dbList);
 					System.out.println("Konto existiert bereits!");
+			        writer.close();
+					return false;
 				}
 			}else{
 				writer.writeNext(kA);
 				 System.out.println("Konto wurde erfolgreich angelegt!");
+			        writer.close();
+				 return true;
 			}
-	        writer.close();
 	       
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return false;
 	}
 	
 	

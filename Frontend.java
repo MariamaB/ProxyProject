@@ -3,7 +3,7 @@ package htw.designpattern.projekt.proxy;
 import htw.designpattern.projekt.proxy.bank.BankAutomatProxy;
 import htw.designpattern.projekt.proxy.bank.MitarbeiterZugang;
 
-public class Client {
+public class Frontend {
 
 	public static void main(String[] args) {
 			

@@ -6,9 +6,9 @@ public class BankBackendProxy implements KontoAnlegen{
 	
 	
 	@Override
-	public void createKonto(String name, String vormane, String blz, int pin, double kontostand) {	
+	public boolean createKonto(String name, String vormane, String blz, int pin, double kontostand) {	
 		Backend b = new Backend();
-		b.createKonto(name, vormane, blz, pin, kontostand);
+		return b.createKonto(name, vormane, blz, pin, kontostand);
 	}
 	
 
