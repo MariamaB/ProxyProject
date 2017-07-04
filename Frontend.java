@@ -2,6 +2,7 @@ package htw.designpattern.projekt.proxy;
 
 import htw.designpattern.projekt.proxy.bank.BankAutomatProxy;
 import htw.designpattern.projekt.proxy.bank.MitarbeiterZugang;
+import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 
 public class Frontend {
 
@@ -19,8 +20,8 @@ public class Frontend {
 		bMA.createKonto(123,"Mustermann", "Will", "DE82 1005 0000 6511 3338 77", 
 				5678, 90.000);
 		
-		BankAutomatProxy bA = new BankAutomatProxy("DE82 1005 0000 6011 9838 88",1234);
-		BankAutomatProxy bA2 = new BankAutomatProxy("DE84 1005 0000 6012 9878 24",4321);
+		KontoInteraktion bA = new BankAutomatProxy("DE82 1005 0000 6011 9838 88",1234);
+		KontoInteraktion bA2 = new BankAutomatProxy("DE84 1005 0000 6012 9878 24",4321);
 		bA.auszahlung(20.0);
 		bA.einzahlung(200.0);
 		bA.getKontoauszug();
