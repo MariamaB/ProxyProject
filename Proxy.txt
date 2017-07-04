@@ -22,7 +22,10 @@ werden bis das echte Objekt eintrifft. Das ist voll allem empfehlenswert,
 wenn anderen Nutzergruppen ins spiel kommen. Es gibt verschiedene Formen des Design Patterns hier ein paar Beispiele:
 
 - Remote Proxy
-  
+  Ein Remote Proxy liefert ein lokales Objekt, dass auf ein Subjekt Objekt in einem entfernten System referenziert.
+  Generell über eine Netzwerkverbindung. (Bsp. Remote  Procedure Call)
+
+
 
 
 
