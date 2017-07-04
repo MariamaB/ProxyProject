@@ -1,0 +1,29 @@
+• Wählen	Sie	eines	der	zuvor	aufgelisteten	Design	Pattern.	
+• Erklären	Sie	(in	nicht	mehr	als	2	A4-Seiten	oder	als	Präsentation)
+• die	grundsätzliche	Idee	des	von	Ihnen	ausgewählten	Pattern,
+• wie	es	sich	gegen	andere	Pattern	abgrenzt,
+• welche	praktische	Relevanz	/	Einsatzgebiete	das	Pattern	hat,
+• wie	es	sich	als	UML-Klassendiagramm	beschreiben	lässt.	
+• Implementieren	Sie	das	von	Ihnen	ausgewählte	Pattern	in	einem	Beispiel.
+• Formulieren	Sie	dazu	eine	entsprechende	Aufgabe,	die	Studentinnen	in	ca.	1,5h	
+lösen	können.
+• Präsentieren	Sie	eine	gut	dokumentierte	Lösung	der	Beispielimplementierung.
+• Sie	präsentieren	Ihre	Dokumentation	und	die	Beispielimplementierung	in	einem	
+persönlichen	Gespräch	von	ca.	20	min.	Termin	6.	und	13.Juli	à bitte	eintragen.
+
+
+Proxy
+
+Ein Proxy ist ein Strukturmuster Patter und gilt als Stellvertreter etwar einer Schnittstelle. 
+Das Strukturmuster Proxy bietet einen kontrollierten Zugriff auf Funktionalitäten, 
+er repräsentiert und beinhaltet Funktionalitäten einer anderen Klasse. Durch die Proxy Klassen können diese 
+Funktionalitäten erweitert werden, (sensible) geschützt werden oder (in einen entfernten System )repräsentiert 
+werden bis das echte Objekt eintrifft. Das ist voll allem empfehlenswert, 
+wenn anderen Nutzergruppen ins spiel kommen. Es gibt verschiedene Formen des Design Patterns hier ein paar Beispiele:
+
+- Remote Proxy
+  
+
+
+
+Oder unter verschiedenster Umstände auch ein Platzhalter.
