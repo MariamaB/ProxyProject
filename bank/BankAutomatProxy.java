@@ -39,7 +39,8 @@ public class BankAutomatProxy implements KontoInteraktion {
 
 	@Override
 	public void ueberweisung(String blz, String verwendungszweck, double betrag) {
-		// TODO Auto-generated method stub
+		KontoVerwaltung kv = new KontoVerwaltung(this.blz,pin);
+		kv.ueberweisung(blz, verwendungszweck, betrag);
 		
 	}
 

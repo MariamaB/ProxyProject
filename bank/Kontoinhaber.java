@@ -2,7 +2,9 @@ package htw.designpattern.projekt.proxy.bank;
 
  public class Kontoinhaber {
 	
-	
+	private String name;
+	private String vorname;
+		
 	protected Kontoinhaber(String name, String vorname) {
 		this.name = name;
 		this.vorname = vorname;
@@ -20,9 +22,6 @@ package htw.designpattern.projekt.proxy.bank;
 
 	protected Kontoinhaber() {
 	}
-
-	private String name;
-	private String vorname;
 
 	public String getName() {
 		return name;
