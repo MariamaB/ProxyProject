@@ -12,6 +12,7 @@ public class MitarbeiterZugang{
 
 	public void createKonto(int personalPasswort, String name, String vorname, String blz, int KundenPin, double kontostand) {
 		KontoAnlegen bbp = new BankBackendProxy();
+		
 		if (this.authPwd == personalPasswort) {
 			bbp.createKonto(name, vorname, blz, KundenPin, kontostand);
 		}

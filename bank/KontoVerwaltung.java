@@ -16,11 +16,39 @@ import htw.designpattern.projekt.proxy.interfaces.KontoInteraktion;
 public class KontoVerwaltung implements KontoInteraktion,KontoAnlegen{
 	private Konto konto;
 	private String kontenCsv = "DB.csv";
+	
+	
 	protected KontoVerwaltung(){
+		if(!new File(kontenCsv).exists()){
+			
+			try {
+				FileWriter fileWriter = new FileWriter(kontenCsv);
+				fileWriter.flush();
+				fileWriter.close();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	
 	}
 	protected KontoVerwaltung(String blz, int kundenPin) {
 		konto = this.getKonto(blz, kundenPin);	
+		
+			if(!new File(kontenCsv).exists()){
+				
+				try {
+					FileWriter fileWriter = new FileWriter(kontenCsv);
+					fileWriter.flush();
+					fileWriter.close();
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		
 	}
 	
 	@Override
