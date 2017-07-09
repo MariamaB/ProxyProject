@@ -2,14 +2,12 @@ package htw.designpattern.projekt.proxy;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import htw.designpattern.projekt.proxy.bank.BankAutomatProxy;
 import htw.designpattern.projekt.proxy.bank.MitarbeiterZugang;
@@ -19,7 +17,7 @@ public class Frontend {
 	JFrame window;
 	JPanel panel,buttonPanel;
 	JLabel derText;
-	JButton auszahlung,einzahlung,kontostand, kontoauszug;
+	JButton auszahlung,einzahlung,kontostand, kontoauszug, ueberweisung;
 	public Frontend() {
 		window = new JFrame("BankAutomat");
 		panel = new JPanel();
@@ -49,13 +47,22 @@ public class Frontend {
 		
 		panel.setLayout(new BorderLayout());
 		panel.setBackground(Color.orange);
-		panelWest.setLayout(new GridLayout(1, 2));
-		panelEast.setLayout(new GridLayout(1, 2));
+		
+		panelWest.setLayout(new GridLayout(2, 1));
+		panelEast.setLayout(new GridLayout(2, 1));
 		
 		auszahlung = new JButton("Auszahlung");
 		einzahlung = new JButton("Einzahlung");
 		kontostand = new JButton("Kontostand");
 		kontoauszug = new JButton("Kontoauszug");
+		ueberweisung = new JButton("Überweiseungen");
+		
+		ueberweisung.setBackground(Color.getHSBColor(200, 165, 87));
+		kontoauszug.setBackground(Color.getHSBColor(200, 165, 87));
+		kontostand.setBackground(Color.getHSBColor(200, 165, 87));
+		
+		einzahlung.setBackground(Color.getHSBColor(200, 165, 87));
+		auszahlung.setBackground(Color.getHSBColor(200, 165, 87));
 		
 		panelWest.add(auszahlung);
 		panelWest.add(einzahlung);
@@ -63,6 +70,7 @@ public class Frontend {
 		panelEast.add(kontostand);
 		panelEast.add(kontoauszug);
 		
+		panel.add(ueberweisung, BorderLayout.CENTER);
 		panel.add(panelWest,BorderLayout.WEST);
 		panel.add(panelEast,BorderLayout.EAST);
 		
@@ -90,11 +98,11 @@ public class Frontend {
 		KontoInteraktion miriam = new BankAutomatProxy("DE82 1005 0000 6011 9838 77",1234);
 		KontoInteraktion felix = new BankAutomatProxy("DE84 1005 0000 6012 9878 24",4321);
 
-		miriam.auszahlung(10.0);
-		miriam.einzahlung(200.0);
-
-
-		miriam.ueberweisung("DE84 1005 0000 6012 9878 24", "Miete", 150);
+//		miriam.auszahlung(10.0);
+//		miriam.einzahlung(200.0);
+//
+//
+//		miriam.ueberweisung("DE84 1005 0000 6012 9878 24", "Miete", 150);
 
 		miriam.getKontoauszug();
 		felix.getKontoauszug();
